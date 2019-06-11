@@ -8,3 +8,8 @@ var restorationSchema = new Schema({
     coordinates: { type: GeoJSON, default: true },
     data: { type: Date, contentType: Number, default: true }
 })
+
+// exporto este módulo
+const restoration = mongoose.model("restoration", restoration);
+
+module.exports = restoration;

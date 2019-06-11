@@ -1,0 +1,25 @@
+{
+  "name": "geotech-database",
+  "version": "1.0.0",
+  "description": "create server to use  geotech mongoDB",
+  "main": "repository.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LiliGuimaraes/geotech-database.git"
+  },
+  "keywords": [
+    "geographical",
+    "node",
+    "mongodb"
+  ],
+  "author": "Lilian Guimarães",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LiliGuimaraes/geotech-database/issues"
+  },
+  "homepage": "https://github.com/LiliGuimaraes/geotech-database#readme"
+}
