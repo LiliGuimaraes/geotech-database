@@ -1,26 +1,13 @@
 show dbs
 show collections
 use points
+db.points.find().pretty()
 db.points.insert(
-{
-    "point_slug":"regen_1",
-    "coordinates":"-43.160195145374814,-20.177999014647924",
-    "data":"Jul4",
-    "year":"1985",
-    "LT-GEE-NDVI":"0.281"}
-)
-db.points.find()
-db.points.update(
-    {"coordinates":"[-43.160195145374814,-20.177999014647924]"},
-       {$set: 
-           {"coordinates":"-43.160195145374814,-20.177999014647924"}
-       })
-       
- db.points.insert(
        { point_slug: "regen_1",
-         coordinates: [
-            {longtitude: "-43.160195145374814", latitude: "-20.177999014647924"},
-           ],
+         coordinates: {
+             type: "Point",
+             coordinates: [-43.160195145374814,-20.177999014647924]
+        },
          datas: [ 
             {data_1:"Jul 4/1985", EVI2LTGEE:"0.35"},
             {data_2:"Jul 4,1985", EVI2LTGEE:"348"},
