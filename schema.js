@@ -5,11 +5,15 @@ var Schema = mongoose.Schema;
 
 var restorationSchema = new Schema({
     point_slug: { type: String, default: true },
-    coordinates: { type: GeoJSON, default: true },
+    coordinates: { type: String, default: true },
     data: { type: Date, contentType: Number, default: true }
 })
 
-// exporto este módulo
-const restoration = mongoose.model("restoration", restoration);
+restorationSchema.virtual("id").get(function() {
+    return this._id;
+});
 
-module.exports = restoration;
+// exporto este módulo
+const points = mongoose.model("points", restorationSchema);
+
+module.exports = points;
