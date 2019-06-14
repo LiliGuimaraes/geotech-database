@@ -6,7 +6,7 @@ var Schema = mongoose.Schema;
 var restorationSchema = new Schema({
     point_slug: { type: String, default: true },
     coordinates: { type: String, default: true },
-    data: { type: Date, contentType: Number, default: true }
+    data: { type: Date, contentType: Number, default: Date.now }
 })
 
 restorationSchema.virtual("id").get(function() {
