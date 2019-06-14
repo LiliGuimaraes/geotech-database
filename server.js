@@ -69,4 +69,43 @@ app.post("/points", (req, res) => {
         res.send(newPoint);
     });
 });
+
+
+app.put("/points/:id", (req, res) => {
+    points.findByIdAndUpdate(
+        req.params.id, { $set: req.body }, { new: true },
+        function(error, point) {
+            if (error)
+                return res.status(error.code).send(error.message);
+            res.send(point);
+        }
+    );
+})
+
+app.patch("/points/:id", (req, res) => {
+    points.findByIdAndUpdate(
+        req.params.id, { $set: req.body }, { new: true },
+        function(error, point) {
+            if (error) {
+                let errorCode = error.code
+                if (!error.code) {
+                    errorCode = 400 // Bad Request
+                }
+                return res.status(errorCode).send(error.message);
+            }
+
+            res.send(point);
+        }
+    );
+})
+
+app.delete("/points/:id", (req, res) => {
+    points.findByIdAndDelete(
+        req.params.id, { $set: req.body },
+        function(err, point) {
+            if (err) return res.status(err.code).send(err.message);
+            res.send(point);
+        }
+    );
+});
 app.listen(PORT, () => console.log(`Ouvindo na porta ${PORT}...`));
